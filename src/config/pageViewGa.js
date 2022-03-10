@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactGA from "react-ga";
 
-// init dengan mencantumkan Tracking ID
+// initialize tracking ID
 ReactGA.initialize('G-F9VS4W64W8');
 
 const pageViewGa = (WrappedComponent, options = {}) => {
@@ -13,17 +13,6 @@ const pageViewGa = (WrappedComponent, options = {}) => {
 
         ReactGA.pageview(page)
     }
-    function loadScript(src) {
-        let script = document.createElement('script');
-        script.src = src;
-        script.async = false;
-        document.body.append(script);
-    }
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
     return class extends Component {
         state = {
             page: null
@@ -43,9 +32,6 @@ const pageViewGa = (WrappedComponent, options = {}) => {
         componentDidMount() {
             const page = this.props.location.pathname + this.props.location.search
             trackingPageView(page)
-            loadScript("https://www.googletagmanager.com/gtag/js?id=G-F9VS4W64W8")
-            gtag('js', new Date());
-            gtag('config', 'G-F9VS4W64W8');
         }
 
         componentDidUpdate(prevProps) {

@@ -16,6 +16,9 @@ export default function FirebaseMessaging() {
   useEffect(() => {
     initializeApp(firebaseConfig);
     const messaging = getMessaging();
+    
+    // vapid key is get from firebase settings
+
     getToken(messaging, { vapidKey: 'BLhTePlz2N76Zv0UvyWX9Pw5Hv5z7837gkbDpeI7JsgAhY4rIyjDZMl7P4nkE3upavhYOs-8-9Xtvpfk0i6Rm7g' }).then((currentToken) => {
       if (currentToken) {
         console.log("firebase token : ", currentToken )

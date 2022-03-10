@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-// components
 
 import CardSettings from "../../components/Cards/CardSettings.js";
 import CardProfile from "../../components/Cards/CardProfile.js";
 import FirebaseMessaging from "../../config/initFirebase.js";
 
 export default function Settings() {
-  // useEffect(() => {
-  // }, [])
 
   return (
     <>

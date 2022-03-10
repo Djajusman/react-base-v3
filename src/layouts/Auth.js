@@ -1,17 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 // components
 
-// import Navbar from "components/Navbars/AuthNavbar.js";
 import FooterSmall from "../components/Footers/FooterSmall.js";
 
-// views
-
-import Login from "../views/auth/Login.js";
-import Register from "../views/auth/Register.js";
-
 export default function Auth() {
+
+  // views
+
+  const Register = lazy(() => import('../views/auth/Register.js'));
+  const Login = lazy(() => import('../views/auth/Login.js'));
+
+  const renderLoader = () => <p>Loading</p>;
+
   return (
     <>
       {/* <Navbar transparent /> */}
@@ -24,11 +26,13 @@ export default function Auth() {
                 "url(" + require("../assets/img/presence-doodle.webp").default + ")",
             }}
           ></div>
-          <Switch>
-            <Route path="/auth/login" exact component={Login} />
-            <Route path="/auth/register" exact component={Register} />
-            <Redirect from="/auth" to="/auth/login" />
-          </Switch>
+          <Suspense fallback={renderLoader()}>
+            <Switch>
+              <Route path="/auth/login" exact component={Login} />
+              <Route path="/auth/register" exact component={Register} />
+              <Redirect from="/auth" to="/auth/login" />
+            </Switch>
+          </Suspense>
           <FooterSmall absolute />
         </section>
       </main>
