@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactGA from "react-ga";
 
 // initialize tracking ID
-ReactGA.initialize('G-F9VS4W64W8');
+ReactGA.initialize('G-77BS8EW9W0');
 
 const pageViewGa = (WrappedComponent, options = {}) => {
     const trackingPageView = page => {

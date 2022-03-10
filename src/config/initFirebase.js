@@ -4,24 +4,25 @@ import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 
 export default function FirebaseMessaging() {
   const firebaseConfig = {
-    apiKey: "AIzaSyD-_n3iKZcMor_j1jpOqGyRfqpH16Yu8QU",
-    authDomain: "fcm-test-ea1ca.firebaseapp.com",
-    projectId: "fcm-test-ea1ca",
-    storageBucket: "fcm-test-ea1ca.appspot.com",
-    messagingSenderId: "592535260625",
-    appId: "1:592535260625:web:b666af36c0a477d8cfa4f0"
+    apiKey: "AIzaSyBpyAxl287uln_3qTjYwG01NDSx-ZredOg",
+    authDomain: "fcm-test-85991.firebaseapp.com",
+    projectId: "fcm-test-85991",
+    storageBucket: "fcm-test-85991.appspot.com",
+    messagingSenderId: "915246906633",
+    appId: "1:915246906633:web:0cb5f355e6c539ab0a67d8",
+    measurementId: "G-77BS8EW9W0"
   };
 
   // Initialize Firebase
   useEffect(() => {
     initializeApp(firebaseConfig);
     const messaging = getMessaging();
-    
+
     // vapid key is get from firebase settings
 
-    getToken(messaging, { vapidKey: 'BLhTePlz2N76Zv0UvyWX9Pw5Hv5z7837gkbDpeI7JsgAhY4rIyjDZMl7P4nkE3upavhYOs-8-9Xtvpfk0i6Rm7g' }).then((currentToken) => {
+    getToken(messaging, { vapidKey: 'BFSGZOBhEVvdtu2hsdaA3h1oGtc19cE_4wNEYVoc8f2sfsKofY03SGu-f1d_FrYkFtVez781gihUdiugRe4XQvc' }).then((currentToken) => {
       if (currentToken) {
-        console.log("firebase token : ", currentToken )
+        console.log("firebase token : ", currentToken)
         // Send the token to your server and update the UI if necessary
         // ...
       } else {

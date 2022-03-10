@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "fcm-test-ea1ca"
-  }
+    "default": "fcm-test-85991",
+    "development": "fcm-test-85991"
+  },
+  "targets": {}
 }
